@@ -42,7 +42,7 @@ export const ingredients: Ingredient[] = [
   },
 ];
 
-interface Ingredient {
+export interface Ingredient {
   id: string;
   name: string;
   icon: string;
