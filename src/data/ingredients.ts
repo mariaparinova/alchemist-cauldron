@@ -35,7 +35,7 @@ export const ingredients: Ingredient[] = [
   {
     id: '6',
     name: 'Essence of the Void',
-    icon: 'Essence-of-the-void',
+    icon: 'essence-of-the-void',
     temperature: -20,
     density: -10,
     magicPower: 40,
