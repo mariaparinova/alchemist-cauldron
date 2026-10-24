@@ -1,0 +1,18 @@
+@use './_variables' as variables;
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  color: variables.$color-accent-1;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.header-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
