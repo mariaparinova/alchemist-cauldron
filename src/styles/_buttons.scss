@@ -1,0 +1,27 @@
+@use 'variables' as variables;
+
+$button-padding: 8px 24px;
+
+.button {
+  border-radius: variables.$border-radius-s;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.button.primary {
+  padding: $button-padding;
+}
+
+.shelf-button {
+  background-color: transparent;
+  border: 1px solid variables.$color-border;
+}
+
+.shelf-button:disabled {
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .shelf-button:hover:not(:disabled) {
+    border-color: variables.$color-accent-2;
+  }
+}
