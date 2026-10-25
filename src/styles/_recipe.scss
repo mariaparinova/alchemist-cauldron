@@ -3,7 +3,7 @@
 
 $recipe-max-width: 320px;
 $recipe-padding: 16px;
-$recipe-gap: 8px;
+$recipe-gap: 12px;
 $recipe-min-height: 260px;
 
 .recipe {
@@ -26,11 +26,9 @@ $recipe-min-height: 260px;
 }
 
 .recipe-name {
-  font-size: variables.$font-size-s;
-  font-weight: 600;
+  font-size: variables.$font-size-xs;
   text-align: center;
   text-transform: uppercase;
-  color: variables.$color-accent-1;
 }
 
 .recipe-details {
@@ -44,7 +42,7 @@ $recipe-min-height: 260px;
 .recipe-row {
   display: flex;
   align-items: center;
-  gap: $recipe-gap;
+  gap: 8px;
 }
 
 .recipe-icon {
@@ -71,11 +69,12 @@ $recipe-min-height: 260px;
 @media screen and (max-width: breakpoints.$mobile) {
   .recipe {
     min-height: 178px;
+    max-width: 100%;
   }
 
   .recipe-details {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .recipe-row:not(.recipe-ingredients) {

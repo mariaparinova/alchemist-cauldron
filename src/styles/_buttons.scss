@@ -25,6 +25,12 @@ $button-padding: 8px 32px;
   border: 1px solid variables.$color-accent-2;
 }
 
+.icon-button {
+  padding: 4px;
+  background-color: transparent;
+  border: 1px solid variables.$color-border;
+}
+
 .shelf-button {
   background-color: transparent;
   border: 1px solid variables.$color-border;
@@ -36,6 +42,7 @@ $button-padding: 8px 32px;
     border-color: variables.$color-accent-2-light;
   }
 
+  .icon-button:hover:not(:disabled),
   .shelf-button:hover:not(:disabled) {
     border-color: variables.$color-accent-2;
   }

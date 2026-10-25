@@ -1,4 +1,5 @@
 @use 'variables' as variables;
+@use 'breakpoints' as breakpoints;
 
 $cabinet-width: 254px;
 $cabinet-border: 8px solid variables.$color-border;
@@ -50,7 +51,7 @@ $shelf-stat-padding: 2px 8px 2px 0;
 .shelf-name {
   max-width: $shelf-name-max-width;
   font-size: variables.$font-size-xs;
-  color: variables.$color-accent-1;
+  font-weight: 600;
   text-align: center;
   text-transform: uppercase;
 }
@@ -79,4 +80,22 @@ $shelf-stat-padding: 2px 8px 2px 0;
   font-size: variables.$font-size-m;
   font-weight: 600;
   color: variables.$color-accent-1;
+}
+
+@media screen and (max-width: breakpoints.$tablet) {
+  .cabinet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: breakpoints.$mobile) {
+  .cabinet {
+    display: flex;
+    border: $cabinet-border;
+    border-radius: variables.$border-radius-s;
+    background-color: variables.$color-bg-01;
+  }
 }

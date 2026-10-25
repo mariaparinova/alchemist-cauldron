@@ -7,6 +7,8 @@
   color: variables.$color-accent-1;
   font-size: 1.2rem;
   font-weight: 600;
+  border-bottom: 1px solid variables.$color-border;
+  border-top: 1px solid variables.$color-border;
 }
 
 .header-item {
@@ -14,5 +16,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 12px;
 }
