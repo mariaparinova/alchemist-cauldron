@@ -50,7 +50,7 @@ export function Shelf(params: ShelfParams) {
   ingredientButton.type = 'button';
   ingredientButton.disabled = amount <= 0;
   ingredientButton.append(ingredientIcon);
-  ingredientButton.addEventListener('click', () => buttonClickHandler);
+  ingredientButton.addEventListener('click', buttonClickHandler);
 
   const details = document.createElement('div');
   details.classList.add('shelf-details');
