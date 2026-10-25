@@ -52,7 +52,6 @@ export function brew(params: { state: GameState; difficulty: Difficulty }) {
   if (isSuccess) {
     state.score += scorePerBrew;
     state.timeLeft += timeBonusPerBrew;
-    state.activeRecipe = pickRecipe({ difficulty, excludeId: activeRecipe.id });
   } else {
     state.lives -= 1;
   }
@@ -61,6 +60,11 @@ export function brew(params: { state: GameState; difficulty: Difficulty }) {
 
   if (isCabinetEmpty || state.lives === 0) {
     state.status = 'game-over';
+    return isSuccess;
+  }
+
+  if (isSuccess) {
+    state.activeRecipe = pickRecipe({ difficulty, excludeId: activeRecipe.id });
   }
 
   return isSuccess;
