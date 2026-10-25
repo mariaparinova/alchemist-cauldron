@@ -23,6 +23,11 @@ $button-padding: 8px 32px;
   color: variables.$color-accent-2;
   background-color: variables.$color-bg;
   border: 1px solid variables.$color-accent-2;
+
+  &:disabled {
+    border-color: variables.$color-border;
+    color: variables.$color-text;
+  }
 }
 
 .icon-button {
@@ -46,4 +51,8 @@ $button-padding: 8px 32px;
   .shelf-button:hover:not(:disabled) {
     border-color: variables.$color-accent-2;
   }
+}
+
+.button[hidden] {
+  display: none;
 }

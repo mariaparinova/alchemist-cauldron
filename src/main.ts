@@ -1,4 +1,6 @@
-import './styles/style.css';
+import './styles/style.scss';
+import { init } from './app.ts';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-hello`;
+const app = document.querySelector<HTMLDivElement>('#app')!;
+
+init(app);

@@ -93,15 +93,22 @@ export function clearCabinet(cabinet: HTMLElement) {
   slots.forEach((slot) => slot.replaceWith(EmptyShelf()));
 }
 
-export function updateShelf(params: UpdateShelfParams) {
-  const { cabinet, ingredientId, amount } = params;
+export function renderCabinet(params: RenderCabinetParams) {
+  const { cabinet, stock, isLocked } = params;
+  const shelves = cabinet.querySelectorAll<HTMLElement>('[data-ingredient-id]');
 
-  const shelf = cabinet.querySelector<HTMLElement>(`[data-ingredient-id="${ingredientId}"]`);
-  if (!shelf) {
-    return;
-  }
+  shelves.forEach((shelf) => {
+    const { ingredientId } = shelf.dataset;
+    if (ingredientId) {
+      updateShelf({ shelf, amount: stock[ingredientId] ?? 0, isLocked });
+    }
+  });
+}
 
-  shelf.classList.toggle('shelf-out-of-stock', amount === 0);
+function updateShelf(params: UpdateShelfParams) {
+  const { shelf, amount, isLocked } = params;
+
+  shelf.classList.toggle('shelf-out-of-stock', amount === 0 || isLocked);
 
   const amountElement = shelf.querySelector<HTMLElement>('.shelf-amount');
   if (amountElement) {
@@ -110,7 +117,7 @@ export function updateShelf(params: UpdateShelfParams) {
 
   const button = shelf.querySelector<HTMLButtonElement>('.shelf-button');
   if (button) {
-    button.disabled = amount === 0;
+    button.disabled = amount === 0 || isLocked;
   }
 }
 
@@ -145,8 +152,14 @@ interface FillCabinetParams {
   onSelect: (ingredientId: string) => void;
 }
 
-interface UpdateShelfParams {
+interface RenderCabinetParams {
   cabinet: HTMLElement;
-  ingredientId: string;
+  stock: Record<string, number>;
+  isLocked: boolean;
+}
+
+interface UpdateShelfParams {
+  shelf: HTMLElement;
   amount: number;
+  isLocked: boolean;
 }
