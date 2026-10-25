@@ -47,3 +47,7 @@ $button-padding: 8px 32px;
     border-color: variables.$color-accent-2;
   }
 }
+
+.button[hidden] {
+  display: none;
+}
