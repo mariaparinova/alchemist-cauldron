@@ -1,0 +1,11 @@
+$cauldron-max-width: 256px;
+
+.cauldron {
+  display: flex;
+  justify-content: center;
+}
+
+.cauldron-image {
+  width: 100%;
+  max-width: $cauldron-max-width;
+}
