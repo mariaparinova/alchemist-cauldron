@@ -6,6 +6,7 @@ export const initState: GameState = {
   status: 'menu',
   score: 0,
   timeLeft: 0,
+  endTime: null,
   lives: 0,
   activeRecipe: null,
   cauldronIngredients: [],
@@ -19,6 +20,7 @@ export interface GameState {
   status: GameStatus;
   score: number;
   timeLeft: number;
+  endTime: number | null;
   lives: number;
   activeRecipe: Recipe | null;
   cauldronIngredients: Ingredient[];

@@ -19,7 +19,7 @@ The primary objective is to mix available ingredients into a cauldron to match t
   - Development tooling configuration.
   - Code architecture and modular folder structure.
 
-- [ ] **Level 1 – Basic Game:**
+- [x] **Level 1 – Basic Game:**
   - Implementation of a complete playable game loop with fixed rule set.
   - Core UI layout.
   - Random recipe generation from the predefined recipe pool.

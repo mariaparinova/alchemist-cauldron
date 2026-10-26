@@ -5,6 +5,7 @@ import { pickRecipe } from './recipe-generator.ts';
 import { calculateCauldron } from './calculate-cauldron.ts';
 import { isBrewSuccessful } from './brew-check.ts';
 import { getRandomNumber } from '../utils/numbers.ts';
+import { addTimeBonus, startTimer } from './timer.ts';
 
 export function startGame(params: { state: GameState; difficulty: Difficulty }) {
   const { state, difficulty } = params;
@@ -24,6 +25,8 @@ export function startGame(params: { state: GameState; difficulty: Difficulty }) 
   state.activeRecipe = pickRecipe({ difficulty });
   state.cauldronIngredients = [];
   state.shelfStock = shelfStock;
+
+  startTimer(state);
 }
 
 export function canBrew(state: GameState) {
@@ -40,7 +43,8 @@ export function brew(params: { state: GameState; difficulty: Difficulty }) {
     return null;
   }
 
-  const { recipeTolerance, scorePerBrew, timeBonusPerBrew } = difficultyTable[difficulty];
+  const { recipeTolerance, scorePerBrew, timeBonusPerBrew, startingTime } =
+    difficultyTable[difficulty];
   const isSuccess = isBrewSuccessful({
     stats: calculateCauldron(cauldronIngredients),
     recipe: activeRecipe,
@@ -51,7 +55,7 @@ export function brew(params: { state: GameState; difficulty: Difficulty }) {
 
   if (isSuccess) {
     state.score += scorePerBrew;
-    state.timeLeft += timeBonusPerBrew;
+    addTimeBonus({ state, bonus: timeBonusPerBrew, maxTime: startingTime });
   } else {
     state.lives -= 1;
   }
