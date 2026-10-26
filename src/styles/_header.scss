@@ -1,0 +1,62 @@
+@use 'variables' as variables;
+@use 'breakpoints' as breakpoints;
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  color: variables.$color-accent-1;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid variables.$color-border;
+  border-top: 1px solid variables.$color-border;
+}
+
+.header-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pause-container {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+}
+
+@media screen and (max-width: breakpoints.$mobile) {
+  .header {
+    padding: 8px;
+  }
+
+  .header .icon {
+    width: variables.$icon-size-s;
+    height: variables.$icon-size-s;
+  }
+
+  .header-item {
+    gap: 4px;
+  }
+
+  .pause-container {
+    width: 40px;
+    height: 40px;
+  }
+
+  .timer-container {
+    gap: 4px;
+  }
+
+  .icon.timer-icon {
+    display: none;
+  }
+}

@@ -1,0 +1,78 @@
+@use 'variables' as variables;
+@use 'breakpoints' as breakpoints;
+
+$app-gap: 20px;
+$app-border: 1px solid variables.$color-border;
+$main-padding: 0 40px;
+
+body {
+  margin: 0 auto;
+  max-width: 1440px;
+  color: variables.$color-text;
+  font-family: variables.$font-family;
+  background-color: variables.$color-bg;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: $app-gap;
+  min-height: 100vh;
+  background-color: variables.$color-bg;
+  border-left: $app-border;
+  border-right: $app-border;
+}
+
+.icon {
+  width: variables.$icon-size;
+  height: variables.$icon-size;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $app-gap;
+  padding: $main-padding;
+}
+
+.game-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: $app-gap;
+}
+
+.cauldron-with-stats {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media screen and (max-width: breakpoints.$tablet) {
+  .main {
+    padding: 0 12px;
+  }
+
+  .game-container {
+    flex-direction: row;
+  }
+
+  .cauldron-with-stats {
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: breakpoints.$mobile) {
+  .game-container {
+    flex-direction: column-reverse;
+  }
+
+  .cauldron-with-stats {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
