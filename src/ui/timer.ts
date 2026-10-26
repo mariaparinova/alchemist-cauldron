@@ -21,7 +21,7 @@ export function Timer() {
   timerInfo.append(timer, bar);
 
   const timerContainer = document.createElement('div');
-  timerContainer.classList.add('header-item', 'timer-container');
+  timerContainer.classList.add('timer-container');
   timerContainer.append(icon, timerInfo);
 
   return timerContainer;

@@ -20,6 +20,19 @@
   gap: 12px;
 }
 
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pause-container {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+}
+
 @media screen and (max-width: breakpoints.$mobile) {
   .header {
     padding: 8px;
@@ -31,6 +44,15 @@
   }
 
   .header-item {
+    gap: 4px;
+  }
+
+  .pause-container {
+    width: 40px;
+    height: 40px;
+  }
+
+  .timer-container {
     gap: 4px;
   }
 
