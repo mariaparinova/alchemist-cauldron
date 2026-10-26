@@ -1,0 +1,35 @@
+@use 'variables' as variables;
+
+$timer-info-gap: 4px;
+$timer-bar-width: 120px;
+$timer-bar-height: 6px;
+
+.timer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.timer-bar {
+  width: $timer-bar-width;
+  height: $timer-bar-height;
+  overflow: hidden;
+  background-color: variables.$color-bg-01;
+  border-radius: variables.$border-radius-xs;
+}
+
+.timer-bar-fill {
+  width: 0;
+  height: 100%;
+  background-color: variables.$color-accent-1;
+  transition: width 0.25s linear;
+}
+
+.timer-warning {
+  color: variables.$color-fail;
+
+  .timer-bar-fill {
+    background-color: variables.$color-fail;
+  }
+}

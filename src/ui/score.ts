@@ -13,3 +13,12 @@ export function Score() {
 
   return scoreContainer;
 }
+
+export function renderScore(params: { container: HTMLElement; score: number }) {
+  const { container, score } = params;
+
+  const scoreElement = container.querySelector<HTMLElement>('.score');
+  if (scoreElement) {
+    scoreElement.textContent = `${score}`;
+  }
+}
