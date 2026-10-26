@@ -18,6 +18,14 @@ export function Recipe() {
   return recipe;
 }
 
+export function clearRecipe(container: HTMLElement) {
+  const heading = document.createElement('span');
+  heading.classList.add('recipe-heading');
+  heading.textContent = 'Recipe';
+
+  container.replaceChildren(heading);
+}
+
 export function renderRecipe(params: RenderRecipeParams) {
   const { container, recipe, maxIngredients } = params;
 
